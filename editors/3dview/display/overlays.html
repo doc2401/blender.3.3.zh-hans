@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-hans" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>视图叠加层 &mdash; Blender Manual</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme_overrides.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/version_switch.css" type="text/css" />
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+    <link rel="canonical" href="https://docs.blender.org/manual/en/latest/editors/3dview/display/overlays.html" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/js/version_switch.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="search" type="application/opensearchdescription+xml"
+          title="Search within Blender Manual"
+          href="../../../_static/opensearch.xml"/>
+<link rel="alternate" hreflang="en" href="https://docs.blender.org/manual/en/latest/" />
+<link rel="alternate" hreflang="ar" href="https://docs.blender.org/manual/ar/latest/" />
+<link rel="alternate" hreflang="de" href="https://docs.blender.org/manual/de/latest/" />
+<link rel="alternate" hreflang="es" href="https://docs.blender.org/manual/es/latest/" />
+<link rel="alternate" hreflang="fi" href="https://docs.blender.org/manual/fi/latest/" />
+<link rel="alternate" hreflang="fr" href="https://docs.blender.org/manual/fr/latest/" />
+<link rel="alternate" hreflang="id" href="https://docs.blender.org/manual/id/latest/" />
+<link rel="alternate" hreflang="it" href="https://docs.blender.org/manual/it/latest/" />
+<link rel="alternate" hreflang="ja" href="https://docs.blender.org/manual/ja/latest/" />
+<link rel="alternate" hreflang="ko" href="https://docs.blender.org/manual/ko/latest/" />
+<link rel="alternate" hreflang="nb" href="https://docs.blender.org/manual/nb/latest/" />
+<link rel="alternate" hreflang="pt" href="https://docs.blender.org/manual/pt/latest/" />
+<link rel="alternate" hreflang="ru" href="https://docs.blender.org/manual/ru/latest/" />
+<link rel="alternate" hreflang="sk" href="https://docs.blender.org/manual/sk/latest/" />
+<link rel="alternate" hreflang="sl" href="https://docs.blender.org/manual/sl/latest/" />
+<link rel="alternate" hreflang="sr" href="https://docs.blender.org/manual/sr/latest/" />
+<link rel="alternate" hreflang="uk" href="https://docs.blender.org/manual/uk/latest/" />
+<link rel="alternate" hreflang="vi" href="https://docs.blender.org/manual/vi/latest/" />
+<link rel="alternate" hreflang="zh-Hans" href="https://docs.blender.org/manual/zh-hans/latest/" />
+<link rel="alternate" hreflang="zh-Hant" href="https://docs.blender.org/manual/zh-hant/latest/" />
+<link rel="alternate" hreflang="x-default" href="https://docs.blender.org/manual/en/latest/" />
+
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="搜索" href="../../../search.html" />
+    <link rel="copyright" title="Copyright" href="../../../copyright.html" />
+    <link rel="next" title="视图着色" href="shading.html" />
+    <link rel="prev" title="视图操控器" href="gizmo.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../index.html" class="icon icon-home"> Blender 3.3 Manual
+            <img src="../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">入门</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/about/index.html">关于 Blender</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/installing/index.html">安装 Blender</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/configuration/index.html">配置 Blender</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/help.html">帮助系统</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">章节</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../interface/index.html">用户界面</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">编辑器</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">3D 视图</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../introduction.html">简介</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../startup_scene.html">启动场景</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modes.html">物体模式</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../navigate/index.html">导航</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../3d_cursor.html">3D游标</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../selecting.html">选择</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../controls/index.html">装配器</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">显示</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="visibility.html">物体类型可见性</a></li>
+<li class="toctree-l4"><a class="reference internal" href="gizmo.html">视图操控器</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">视图叠加层</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#object-mode">物体模式</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#guides">辅助（引导）</a></li>
+<li class="toctree-l6"><a class="reference internal" href="#objects">物体</a></li>
+<li class="toctree-l6"><a class="reference internal" href="#geometry">几何数据</a></li>
+<li class="toctree-l6"><a class="reference internal" href="#motion-tracking">运动追踪</a></li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="#mesh-edit-mode">Mesh Edit Mode</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="#shading">着色</a></li>
+<li class="toctree-l6"><a class="reference internal" href="#mesh-analysis">网格分析</a></li>
+<li class="toctree-l6"><a class="reference internal" href="#measurement">测量</a></li>
+<li class="toctree-l6"><a class="reference internal" href="#normals">法向</a></li>
+<li class="toctree-l6"><a class="reference internal" href="#developer">开发人员</a></li>
+<li class="toctree-l6"><a class="reference internal" href="#freestyle">Freestyle</a></li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="#sculpt-mode">雕刻模式</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#vertex-paint">顶点绘制</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#weight-paint">权重绘制</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#texture-paint">纹理绘制</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#bones">骨骼</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#grease-pencil">蜡笔</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="shading.html">视图着色</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../toolbar/index.html">工具栏</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sidebar.html">侧栏</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../viewport_render.html">视图渲染</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../image/index.html">图像编辑器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../uv/index.html">UV 编辑器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../compositor.html">合成器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../texture_node/index.html">纹理节点</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../geometry_node.html">几何节点编辑器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../shader_editor.html">着色器编辑器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../video_sequencer/index.html">视频序列编辑器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../clip/index.html">影片剪辑编辑器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../dope_sheet/index.html">动画摄影表</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../timeline.html">时间线</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../graph_editor/index.html">曲线编辑器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../drivers_editor.html">驱动器编辑器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../nla/index.html">非线性动画</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../text_editor.html">文本编辑器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../python_console.html">Python 控制台</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../info_editor.html">信息编辑器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../outliner/index.html">大纲视图</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../properties_editor.html">属性</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../file_browser.html">文件浏览器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../asset_browser.html">资产浏览器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../spreadsheet.html">电子表格</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../preferences/index.html">偏好设置</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../scene_layout/index.html">场景 &amp; 物体</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modeling/index.html">建模</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sculpt_paint/index.html">雕刻 &amp; 绘制</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../grease_pencil/index.html">蜡笔</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../animation/index.html">动画 &amp; 绑定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../physics/index.html">物理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../render/index.html">渲染</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compositing/index.html">合成</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../movie_clip/index.html">运动追踪 &amp; 遮罩</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../video_editing/index.html">视频编辑</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../files/index.html">资产、文件 &amp; 数据系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../addons/index.html">插件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../advanced/index.html">高级</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../troubleshooting/index.html">问题排查</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/index.html">词汇表</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">参与</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../contribute/index.html">贡献文档</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Blender 3.3 Manual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../../index.html">编辑器</a> &raquo;</li>
+          <li><a href="../index.html">3D 视图</a> &raquo;</li>
+          <li><a href="index.html">显示</a> &raquo;</li>
+      <li>视图叠加层</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <span class="target" id="bpy-types-view3doverlay"></span><section id="viewport-overlays">
+<h1>视图叠加层<a class="headerlink" href="#viewport-overlays" title="Permalink to this heading"></a></h1>
+<div class="refbox admonition" id="id1">
+<p class="admonition-title">参考</p>
+<dl class="field-list simple">
+<dt class="field-odd">模式</dt>
+<dd class="field-odd"><p>所有模式</p>
+</dd>
+<dt class="field-even">标题栏</dt>
+<dd class="field-even"><p><img alt="叠加层图标" src="../../../_images/editors_3dview_display_overlays.png" /> <span class="menuselection">叠加层</span></p>
+</dd>
+</dl>
+</div>
+<p>Clicking the icon toggles all overlays in the 3D Viewport.
+The dropdown button displays a popover with more detailed settings,
+which are described below.</p>
+<p>The available options depend on the mode that the 3D Viewport is in.</p>
+<section id="object-mode">
+<h2>物体模式<a class="headerlink" href="#object-mode" title="Permalink to this heading"></a></h2>
+<p>The following options are always present, independent of the current mode.
+Some of the overlays can be customized in the
+<a class="reference internal" href="../../preferences/viewport.html"><span class="doc">Viewport Preferences</span></a>.</p>
+<section id="guides">
+<h3>辅助（引导）<a class="headerlink" href="#guides" title="Permalink to this heading"></a></h3>
+<dl>
+<dt>栅格</dt><dd><p>在正交侧视图中显示栅格。</p>
+</dd>
+<dt>基面</dt><dd><p>在透视视图中显示地平面。</p>
+</dd>
+<dt>轴向</dt><dd><p>显示 X、Y 和/或 Z 轴线。</p>
+</dd>
+<dt>比例|缩放</dt><dd><p>栅格/基面各线间距离。</p>
+</dd>
+<dt>细分</dt><dd><p>栅格线之间的细分数。</p>
+</dd>
+<dt>文本信息</dt><dd><p>Show various bits of information in the top left corner of the viewport.</p>
+<dl class="simple">
+<dt>View Perspective</dt><dd><p>Name of the <a class="reference internal" href="../navigate/projections.html"><span class="doc">View Perspective</span></a>,
+such as &quot;Top Orthographic&quot; or &quot;User Perspective.&quot;</p>
+</dd>
+<dt>播放帧率(FPS)</dt><dd><p>Displays the Frames Per Second at which the animation is playing.
+By default, Blender goes through every single frame, which may result in an FPS that's lower than
+intended (and the animation playing slower than realtime); the FPS turns red in this case.
+You can change this behavior in the Playback popover of the <a class="reference internal" href="../../timeline.html"><span class="doc">Timeline</span></a>.</p>
+</dd>
+<dt>物体信息</dt><dd><p>Shows the current frame in parentheses, followed by the names of the selected
+<a class="reference internal" href="../../../scene_layout/collections/index.html"><span class="doc">Collection</span></a> and the <a class="reference internal" href="../../../scene_layout/object/selecting.html#object-active"><span class="std std-ref">active object</span></a>.
+When applicable, also shows the selected <a class="reference internal" href="../../../animation/shape_keys/introduction.html"><span class="doc">Shape Key</span></a>
+and (in angle brackets) the <a class="reference internal" href="../../../animation/markers.html"><span class="doc">Marker</span></a> on the current frame.
+If the object has a keyframe on the current frame, the Object Info is displayed in yellow.</p>
+</dd>
+<dt>Grid Resolution</dt><dd><p>When the view is aligned to a world axis (see <a class="reference internal" href="../navigate/viewpoint.html"><span class="doc">视图</span></a>),
+the Text Info additionally shows the smallest distance between two parallel grid lines.</p>
+</dd>
+</dl>
+</dd>
+<dt>统计信息</dt><dd><p>Show information about the amount of objects and geometry.
+Note that the counters depend on the current selection.
+For example, selecting a mesh gives info on the number of vertices, edges, and faces,
+while selecting a light shows the number of lights in the scene.</p>
+<ul class="simple">
+<li><p>Objects -- Number of the selected objects and the total count.</p></li>
+<li><p>Geometry -- Displays information about the current scene depending on the mode and object type.
+This can be the number of vertices, faces, triangles, or bones.</p></li>
+</ul>
+</dd>
+<dt>HDRI 预览</dt><dd><p>Show two spheres, one glossy and one diffuse, to preview the HDRI that's being used for world lighting.
+While HDRIs can be used in both the <em>Material Preview</em> and <em>Rendered</em>
+<a class="reference internal" href="shading.html"><span class="doc">shading modes</span></a>, the HDRI Preview overlay
+is only available in the former.</p>
+</dd>
+<dt>3D游标</dt><dd><p>显示 <a class="reference internal" href="../3d_cursor.html"><span class="doc">3D游标</span></a>。</p>
+</dd>
+<dt>标注</dt><dd><p>显示 <a class="reference internal" href="../../../interface/annotate_tool.html"><span class="doc">标注</span></a>。</p>
+</dd>
+</dl>
+</section>
+<section id="objects">
+<h3>物体<a class="headerlink" href="#objects" title="Permalink to this heading"></a></h3>
+<dl class="simple">
+<dt>附加</dt><dd><p>显示不具有几何的物体（比如空物体、摄像机和灯光）。</p>
+</dd>
+<dt>关系线</dt><dd><p>显示表示父项或约束关系的虚线。</p>
+</dd>
+<dt>所选物体的轮廓线</dt><dd><p>显示在所选物体周围的轮廓线。</p>
+</dd>
+<dt>骨骼</dt><dd><p>显示骨骼。</p>
+</dd>
+<dt>运动路径</dt><dd><p>显示 <a class="reference internal" href="../../../animation/motion_paths.html"><span class="doc">运动路径</span></a> 的叠加层。</p>
+</dd>
+<dt>原点</dt><dd><p>显示所选物体的 <a class="reference internal" href="../../../scene_layout/object/origin.html"><span class="doc">原点</span></a>。</p>
+</dd>
+<dt>原点（全部）</dt><dd><p>显示所有物体的原点。</p>
+</dd>
+</dl>
+</section>
+<section id="geometry">
+<h3>几何数据<a class="headerlink" href="#geometry" title="Permalink to this heading"></a></h3>
+<span id="bpy-types-view3doverlay-wireframe-threshold"></span><dl id="bpy-types-view3doverlay-show-wireframes">
+<dt>线框</dt><dd><p>Display mesh edges. Similar to <a class="reference internal" href="shading.html#dview-shading-rendered"><span class="std std-ref">Wireframe Shading</span></a>,
+but displays edges on top of existing shading.
+The value slider adjusts which edges to display:
+lower values hide edges on surfaces that are almost flat, while a value of 1 shows all edges.</p>
+<dl class="simple" id="bpy-types-view3doverlay-wireframe-opacity">
+<dt>不透明度</dt><dd><p>显示边的不透明度，从 0（不可见）到 1（完全不透明）。</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<span id="bpy-types-view3doverlay-fade-inactive-alpha"></span><dl class="simple" id="bpy-types-view3doverlay-show-fade-inactive">
+<dt>淡化非活动几何体</dt><dd><p>In modes other than Object Mode, fade out objects that you're not working on.
+The slider controls how much they're faded out.</p>
+</dd>
+</dl>
+<dl class="simple" id="bpy-types-view3doverlay-show-face-orientation">
+<dt>面朝向</dt><dd><p>Show faces whose normal is pointing towards the camera in blue,
+and faces whose normal is pointing away from the camera in red.
+This lets you quickly check for faces that are oriented incorrectly:
+the outside surface of an object should typically be all blue.</p>
+</dd>
+</dl>
+</section>
+<section id="motion-tracking">
+<span id="bpy-types-spaceview3d-show-reconstruction"></span><h3>运动追踪<a class="headerlink" href="#motion-tracking" title="Permalink to this heading"></a></h3>
+<p>显示 <a class="reference internal" href="../../../movie_clip/tracking/introduction.html"><span class="doc">运动追踪</span></a> 的叠加层。</p>
+<dl class="simple">
+<dt>相机路径</dt><dd><p>显示重建后的摄像机路径。</p>
+</dd>
+<dt>标记名称</dt><dd><p>显示重建后的轨迹物体名称。</p>
+</dd>
+<dt>轨道</dt><dd><p>Change the display of the reconstructed tracks:
+plain axes, arrows and so on.</p>
+</dd>
+<dt>尺寸</dt><dd><p>更改重建轨道的显示尺寸。</p>
+</dd>
+</dl>
+</section>
+</section>
+<section id="mesh-edit-mode">
+<span id="dview-overlay-mesh-edit-mode"></span><h2>Mesh Edit Mode<a class="headerlink" href="#mesh-edit-mode" title="Permalink to this heading"></a></h2>
+<p>以下选项在网格编辑模式下可用。</p>
+<dl>
+<dt>边</dt><dd><p>Highlight selected and partially selected edges.
+Only affects vertex and face selection modes, as edges are always highlighted in edge selection mode.</p>
+</dd>
+<dt>面</dt><dd><p>高亮显示选中的面。所有模式均受影响。</p>
+</dd>
+<dt>中心</dt><dd><p>在实体着色模式下显示面中心点。（面中心点在线框着色模式下始终可见）</p>
+<p>仅影响面选择模式。</p>
+</dd>
+<dt>折痕</dt><dd><p>显示因使用 <a class="reference internal" href="../../../modeling/modifiers/generate/subdivision_surface.html"><span class="doc">表面细分修改器</span></a> 标有折痕的边。</p>
+</dd>
+<dt>锐利</dt><dd><p>显示锐边，可用于 <a class="reference internal" href="../../../modeling/modifiers/generate/edge_split.html"><span class="doc">拆边修改器</span></a>。</p>
+</dd>
+<dt>倒角</dt><dd><p>显示为 <a class="reference internal" href="../../../modeling/modifiers/generate/bevel.html"><span class="doc">倒角修改器</span></a> 创建的权重。</p>
+</dd>
+<dt>缝合边</dt><dd><p>显示 <a class="reference internal" href="../../../modeling/meshes/uv/unwrapping/seams.html"><span class="doc">UV展开缝合边</span></a>。</p>
+</dd>
+</dl>
+<section id="shading">
+<h3>着色<a class="headerlink" href="#shading" title="Permalink to this heading"></a></h3>
+<dl>
+<dt>Hidden Wire</dt><dd><p>Show only front-facing wireframes.
+This is useful for a retopology workflow.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Optimally this could be combined with the <em>X-Ray</em> display setting.</p>
+</div>
+</dd>
+<dt>顶点组权重</dt><dd><p>Display weights in Edit Mode.</p>
+<dl>
+<dt>零权重</dt><dd><p>Display unreferenced and zero-weighted areas in black.
+This helps to identify areas with very low weights that have been painted onto.</p>
+<dl class="simple">
+<dt>无</dt><dd><p>以正常方式显示顶点。</p>
+</dd>
+<dt>活动</dt><dd><p>在活动顶点组中无权重的顶点将显示为黑色。</p>
+</dd>
+<dt>全部</dt><dd><p>在任意顶点组中无权重的顶点将显示为黑色。</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="mesh-analysis">
+<h3>网格分析<a class="headerlink" href="#mesh-analysis" title="Permalink to this heading"></a></h3>
+<p>显示 <a class="reference internal" href="../../../modeling/meshes/mesh_analysis.html#modeling-mesh-analysis"><span class="std std-ref">网格分析</span></a> 叠加层。</p>
+</section>
+<section id="measurement">
+<h3>测量<a class="headerlink" href="#measurement" title="Permalink to this heading"></a></h3>
+<p>Show numerical measures of the selected elements.
+The <a class="reference internal" href="../../../scene_layout/scene/properties.html#bpy-types-unitsettings"><span class="std std-ref">单位</span></a> can be set in the Scene properties.</p>
+<dl class="simple">
+<dt>边长</dt><dd><p>显示所选边边长。</p>
+</dd>
+<dt>边的夹角</dt><dd><p>显示所选边相邻面之间的夹角。</p>
+</dd>
+<dt>面的面积</dt><dd><p>显示所选面的面积。</p>
+</dd>
+<dt>面内角</dt><dd><p>显示所选面的各内角角度。</p>
+</dd>
+</dl>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>变换时会显示连接到所选项的几何图形，例如，允许移动顶点并查看连接的边长。</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>These values respect the <a class="reference internal" href="../../../modeling/meshes/editing/mesh/transform/basic.html#modeling-mesh-transform-panel"><span class="std std-ref">Transform Space</span></a>
+in the Sidebar. Use <em>Global</em> if you want the object's scale to be applied to the measurements.</p>
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="../toolbar/measure.html"><span class="doc">测量</span></a> 工具，用以测量任意距离和角度。</p>
+</div>
+</section>
+<section id="normals">
+<span id="mesh-display-normals"></span><h3>法向<a class="headerlink" href="#normals" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>显示顶点法线</p></li>
+<li><p>在顶点处显示面法线（拆分法线）</p></li>
+<li><p>显示面法线</p></li>
+</ul>
+<dl>
+<dt>尺寸</dt><dd><p>所选法线显示的尺寸。</p>
+<dl class="simple" id="bpy-types-view3doverlay-use-normals-constant-screen-size">
+<dt>恒定屏幕法线尺寸</dt><dd><p>相对于缩放级别保持法线大小恒定。</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="developer">
+<h3>开发人员<a class="headerlink" href="#developer" title="Permalink to this heading"></a></h3>
+<p>这些叠加层仅当 <a class="reference internal" href="../../preferences/interface.html"><span class="doc">界面设置</span></a> 中的 <em>开发选项</em> 开启后才可用。</p>
+<dl class="simple">
+<dt>编号</dt><dd><p>显示所选点、线、面的编号。</p>
+</dd>
+</dl>
+</section>
+<section id="freestyle">
+<h3>Freestyle<a class="headerlink" href="#freestyle" title="Permalink to this heading"></a></h3>
+<p>这些设置应用于 <a class="reference internal" href="../../../render/freestyle/introduction.html"><span class="doc">Freestyle</span></a> 线条艺术渲染器。</p>
+<dl class="simple">
+<dt>边标记</dt><dd><p>显示 Freestyle 边标记。</p>
+</dd>
+<dt>面标记</dt><dd><p>显示 Freestyle 面标记。</p>
+</dd>
+</dl>
+</section>
+</section>
+<section id="sculpt-mode">
+<h2>雕刻模式<a class="headerlink" href="#sculpt-mode" title="Permalink to this heading"></a></h2>
+<dl class="simple">
+<dt>遮罩</dt><dd><p>将 <a class="reference internal" href="../../../sculpt_paint/sculpting/editing/mask.html#sculpt-mask-menu"><span class="std std-ref">遮罩</span></a> 显示为物体上的叠加层。该叠加层的不透明度可以调节。</p>
+</dd>
+<dt>面组</dt><dd><p>将 <a class="reference internal" href="../../../sculpt_paint/sculpting/editing/face_sets.html#sculpting-editing-facesets"><span class="std std-ref">面组</span></a> 显示为物体上的叠加层。该叠加层的不透明度可以调节。</p>
+</dd>
+</dl>
+</section>
+<section id="vertex-paint">
+<h2>顶点绘制<a class="headerlink" href="#vertex-paint" title="Permalink to this heading"></a></h2>
+<dl class="simple" id="bpy-types-view3doverlay-vertex-paint-mode-opacity">
+<dt>镂板遮罩不透明度</dt><dd><p>Does nothing. (Stencil masks are only available for texture painting.)</p>
+</dd>
+<dt>显示线框</dt><dd><p>Display mesh edges in white (unlike the <em>Wireframe</em> overlay which shows them in black).</p>
+</dd>
+</dl>
+</section>
+<section id="weight-paint">
+<h2>权重绘制<a class="headerlink" href="#weight-paint" title="Permalink to this heading"></a></h2>
+<dl>
+<dt>不透明度</dt><dd><p>叠加层的不透明度。</p>
+</dd>
+<dt>零权重</dt><dd><p>Display unreferenced and zero-weighted areas in black.
+This helps to identify areas with very low weights that have been painted onto.</p>
+<dl class="simple">
+<dt>无</dt><dd><p>以正常方式显示顶点。</p>
+</dd>
+<dt>活动</dt><dd><p>在活动顶点组中无权重的顶点将显示为黑色。</p>
+</dd>
+<dt>全部</dt><dd><p>在任意顶点组中无权重的顶点将显示为黑色。</p>
+</dd>
+</dl>
+</dd>
+<dt>显示权重轮廓线</dt><dd><p>显示由具有相同插值权重的点形成的轮廓线。</p>
+<p>这可视化了重量变化太小，无法从颜色中看到，并且可用于例如在使用平滑工具和刷子时判断梯度的平滑度和一致性。</p>
+</dd>
+<dt>显示线框</dt><dd><p>Display mesh edges in white (unlike the <em>Wireframe</em> overlay which shows them in black).</p>
+</dd>
+</dl>
+</section>
+<section id="texture-paint">
+<h2>纹理绘制<a class="headerlink" href="#texture-paint" title="Permalink to this heading"></a></h2>
+<dl class="simple" id="bpy-types-view3doverlay-texture-paint-mode-opacity">
+<dt>镂板遮罩不透明度</dt><dd><p><a class="reference internal" href="../../../sculpt_paint/texture_paint/tool_settings/mask.html"><span class="doc">镂板遮罩</span></a> 叠加层的不透明度。</p>
+</dd>
+</dl>
+</section>
+<section id="bones">
+<h2>骨骼<a class="headerlink" href="#bones" title="Permalink to this heading"></a></h2>
+<dl class="simple">
+<dt>淡化几何体</dt><dd><p>Show the bones on top and face other geometry to the back.
+The opacity can be controlled with the slider.
+Only available in Pose Mode.</p>
+</dd>
+<dt>骨骼线框不透明度</dt><dd><p>The maximum opacity used for bones drawn in the <em>Wireframe</em>
+<a class="reference internal" href="shading.html"><span class="doc">shading mode</span></a>
+(or in <em>Solid</em> shading mode with X-Ray active).
+This is helpful when it is necessary to reduce clutter and focus on
+the mesh rather than bones.</p>
+</dd>
+</dl>
+</section>
+<section id="grease-pencil">
+<span id="dview-overlay-grease-pencil"></span><h2>蜡笔<a class="headerlink" href="#grease-pencil" title="Permalink to this heading"></a></h2>
+<dl>
+<dt>洋葱皮</dt><dd><p>Show ghosts of the keyframes before and after the current frame.
+If <a class="reference internal" href="../../../grease_pencil/multiframe.html"><span class="doc">Multiframe</span></a> is enabled,
+ghosts of the selected keyframes are shown instead.
+See <a class="reference internal" href="../../../grease_pencil/properties/onion_skinning.html"><span class="doc">洋葱皮</span></a>.</p>
+</dd>
+<dt>画布</dt><dd><p>Display a grid over the Grease Pencil drawing plane.
+The opacity of the grid can be controlled with the slider.
+When using the <em>Canvas X-Ray</em> option, objects are drawn behind the canvas grid.</p>
+</dd>
+<dt>淡化非活动层</dt><dd><p>降低除活动层之外的所有层的不透明度。可通过滑块控制不透明度系数。</p>
+</dd>
+<dt>淡化非活动物体</dt><dd><p>Cover all of the viewport except the active Grease Pencil object with a full color layer to improve visibility
+while drawing over complex scenes.</p>
+<dl class="simple">
+<dt>淡化蜡笔物体</dt><dd><p>包括或排除蜡笔物体。</p>
+</dd>
+</dl>
+</dd>
+<dt>编辑线条</dt><dd><p>在编辑模式下显示编辑线。</p>
+</dd>
+<dt>仅在多帧</dt><dd><p>When Multiframe is enabled and keyframes other than the current frame are selected,
+strokes on those keyframes are displayed as just their edit lines -- the strokes themselves are hidden.
+Note that this does not affect Onion Skinning.</p>
+</dd>
+<dt>笔画方向</dt><dd><p>Toggle the display of the selected strokes' start points (green) and end points (red) to visualize their direction.</p>
+</dd>
+<dt>材质方向</dt><dd><p>在所选笔画旁显示材质名称。</p>
+</dd>
+<dt>顶点不透明度</dt><dd><p>Opacity for vertices (points) and edit lines in Edit Mode.</p>
+</dd>
+<dt>顶点绘制不透明度</dt><dd><p>The opacity of the vertex color overlay in Vertex Paint Mode and Draw Mode.
+Note that in Draw Mode, vertex paint is only visible in the <em>Material Preview</em>
+and <em>Rendered</em> shading modes by default. To see it in <em>Solid</em> mode, you either
+need to use Vertex Paint Mode, or set the <a class="reference internal" href="../../../render/workbench/color.html"><span class="doc">Color</span></a>
+shading setting to <em>Attribute</em>.</p>
+</dd>
+</dl>
+<dl class="simple" id="bpy-types-view3doverlay-display-handle">
+<dt>控制柄</dt><dd><p>当 <a class="reference internal" href="../../../grease_pencil/modes/edit/curve_editing.html"><span class="doc">曲线编辑</span></a> 处于活动状态时，此选项控制曲线在3D视图中的显示方式。</p>
+<dl class="field-list simple">
+<dt class="field-odd">无</dt>
+<dd class="field-odd"><p>不显示控制柄，仅显示控制点。</p>
+</dd>
+<dt class="field-even">选中项</dt>
+<dd class="field-even"><p>仅显示选定控制点的控制滑块。</p>
+</dd>
+<dt class="field-odd">全部</dt>
+<dd class="field-odd"><p>所有控制柄都被展示。</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="gizmo.html" class="btn btn-neutral float-left" title="视图操控器" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="shading.html" class="btn btn-neutral float-right" title="视图着色" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; <a href="../../../copyright.html">Copyright</a> : This page is licensed under a CC-BY-SA 4.0 Int. License.
+      <span class="lastupdated">Last updated on 10/02/2024.
+      </span></p>
+  </div>
+
+  
+<div class="footer-contribute">
+   <ul>
+      <li>
+         <a href="https://developer.blender.org/diffusion/BM/browse/trunk/blender_docs/manual/editors/3dview/display/overlays.rst"
+            class="fa fa-edit"> Edit Page</a>
+      </li>
+      <li>
+         <a href="https://developer.blender.org/maniphest/task/edit/form/default/?description=Pagename%3A%20%60editors/3dview/display/overlays%60%0ABlender%20Version%3A%20%603.3%60%0ADocumentation%20Language%3A%20%60zh-hans%60%0A%5B%5B%20https%3A%2F%2Fdocs.blender.org%2Fmanual%2Fzh-hans%2F3.3%2Feditors/3dview/display/overlays.html%20%7C%20Permanent%20link%20%5D%5D%0A%0A%2A%2AShort%20description%20of%20error%2A%2A%0A%5BPlease%20fill%20out%20a%20short%20description%20of%20the%20error%20here%5D&project=PHID-PROJ-c4nvvrxuczix2326vlti"
+            class="fa fa-bug"> 报告本页面的问题</a>
+      </li>
+      <ul>
+</div>
+
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+	<ul id="versionwrap" role="presentation">
+		<li role="presentation">
+			<span id="version-popover" class="version-btn" tabindex="0" role="button" aria-label="versions selector"
+				aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+				3.3
+			</span>
+			<div class="version-dialog" aria-hidden="true">
+				<div class="version-arrow" aria-hidden="true"></div>
+				<div class="version-title">Versions</div>
+				<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-popover"
+					aria-hidden="true">
+					<li role="presentation">Loading...</li>
+				</ul>
+			</div>
+		</li>
+		<li role="presentation">
+			<span id="lang-popover" class="version-btn" tabindex="0" role="button" aria-label="language selector"
+				aria-haspopup="true" aria-controls="version-langlist">
+				 zh-hans 
+			</span>
+			<div class="version-dialog" aria-hidden="true">
+				<div class="version-arrow" aria-hidden="true"></div>
+				<div class="version-title">Languages</div>
+				<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-popover"
+					aria-hidden="true">
+					<li role="presentation">Loading...</li>
+				</ul>
+			</div>
+		</li>
+	</ul>
+</div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-1418081-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-1418081-1', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

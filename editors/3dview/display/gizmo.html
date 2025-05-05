@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-hans" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>视图操控器 &mdash; Blender Manual</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme_overrides.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/version_switch.css" type="text/css" />
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+    <link rel="canonical" href="https://docs.blender.org/manual/en/latest/editors/3dview/display/gizmo.html" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/js/version_switch.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="search" type="application/opensearchdescription+xml"
+          title="Search within Blender Manual"
+          href="../../../_static/opensearch.xml"/>
+<link rel="alternate" hreflang="en" href="https://docs.blender.org/manual/en/latest/" />
+<link rel="alternate" hreflang="ar" href="https://docs.blender.org/manual/ar/latest/" />
+<link rel="alternate" hreflang="de" href="https://docs.blender.org/manual/de/latest/" />
+<link rel="alternate" hreflang="es" href="https://docs.blender.org/manual/es/latest/" />
+<link rel="alternate" hreflang="fi" href="https://docs.blender.org/manual/fi/latest/" />
+<link rel="alternate" hreflang="fr" href="https://docs.blender.org/manual/fr/latest/" />
+<link rel="alternate" hreflang="id" href="https://docs.blender.org/manual/id/latest/" />
+<link rel="alternate" hreflang="it" href="https://docs.blender.org/manual/it/latest/" />
+<link rel="alternate" hreflang="ja" href="https://docs.blender.org/manual/ja/latest/" />
+<link rel="alternate" hreflang="ko" href="https://docs.blender.org/manual/ko/latest/" />
+<link rel="alternate" hreflang="nb" href="https://docs.blender.org/manual/nb/latest/" />
+<link rel="alternate" hreflang="pt" href="https://docs.blender.org/manual/pt/latest/" />
+<link rel="alternate" hreflang="ru" href="https://docs.blender.org/manual/ru/latest/" />
+<link rel="alternate" hreflang="sk" href="https://docs.blender.org/manual/sk/latest/" />
+<link rel="alternate" hreflang="sl" href="https://docs.blender.org/manual/sl/latest/" />
+<link rel="alternate" hreflang="sr" href="https://docs.blender.org/manual/sr/latest/" />
+<link rel="alternate" hreflang="uk" href="https://docs.blender.org/manual/uk/latest/" />
+<link rel="alternate" hreflang="vi" href="https://docs.blender.org/manual/vi/latest/" />
+<link rel="alternate" hreflang="zh-Hans" href="https://docs.blender.org/manual/zh-hans/latest/" />
+<link rel="alternate" hreflang="zh-Hant" href="https://docs.blender.org/manual/zh-hant/latest/" />
+<link rel="alternate" hreflang="x-default" href="https://docs.blender.org/manual/en/latest/" />
+
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="搜索" href="../../../search.html" />
+    <link rel="copyright" title="Copyright" href="../../../copyright.html" />
+    <link rel="next" title="视图叠加层" href="overlays.html" />
+    <link rel="prev" title="物体类型可见性" href="visibility.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../index.html" class="icon icon-home"> Blender 3.3 Manual
+            <img src="../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">入门</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/about/index.html">关于 Blender</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/installing/index.html">安装 Blender</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/configuration/index.html">配置 Blender</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/help.html">帮助系统</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">章节</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../interface/index.html">用户界面</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">编辑器</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">3D 视图</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../introduction.html">简介</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../startup_scene.html">启动场景</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modes.html">物体模式</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../navigate/index.html">导航</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../3d_cursor.html">3D游标</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../selecting.html">选择</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../controls/index.html">装配器</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">显示</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="visibility.html">物体类型可见性</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">视图操控器</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#id2">视图操控器</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#object-gizmos">物体操控器</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#empty">空物体</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#light">灯光</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#camera">摄像机</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="overlays.html">视图叠加层</a></li>
+<li class="toctree-l4"><a class="reference internal" href="shading.html">视图着色</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../toolbar/index.html">工具栏</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sidebar.html">侧栏</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../viewport_render.html">视图渲染</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../image/index.html">图像编辑器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../uv/index.html">UV 编辑器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../compositor.html">合成器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../texture_node/index.html">纹理节点</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../geometry_node.html">几何节点编辑器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../shader_editor.html">着色器编辑器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../video_sequencer/index.html">视频序列编辑器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../clip/index.html">影片剪辑编辑器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../dope_sheet/index.html">动画摄影表</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../timeline.html">时间线</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../graph_editor/index.html">曲线编辑器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../drivers_editor.html">驱动器编辑器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../nla/index.html">非线性动画</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../text_editor.html">文本编辑器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../python_console.html">Python 控制台</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../info_editor.html">信息编辑器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../outliner/index.html">大纲视图</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../properties_editor.html">属性</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../file_browser.html">文件浏览器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../asset_browser.html">资产浏览器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../spreadsheet.html">电子表格</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../preferences/index.html">偏好设置</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../scene_layout/index.html">场景 &amp; 物体</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modeling/index.html">建模</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sculpt_paint/index.html">雕刻 &amp; 绘制</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../grease_pencil/index.html">蜡笔</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../animation/index.html">动画 &amp; 绑定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../physics/index.html">物理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../render/index.html">渲染</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compositing/index.html">合成</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../movie_clip/index.html">运动追踪 &amp; 遮罩</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../video_editing/index.html">视频编辑</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../files/index.html">资产、文件 &amp; 数据系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../addons/index.html">插件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../advanced/index.html">高级</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../troubleshooting/index.html">问题排查</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/index.html">词汇表</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">参与</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../contribute/index.html">贡献文档</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Blender 3.3 Manual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../../index.html">编辑器</a> &raquo;</li>
+          <li><a href="../index.html">3D 视图</a> &raquo;</li>
+          <li><a href="index.html">显示</a> &raquo;</li>
+      <li>视图操控器</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="viewport-gizmos">
+<span id="bpy-types-spaceview3d-show-gizmo"></span><h1>视图操控器<a class="headerlink" href="#viewport-gizmos" title="Permalink to this heading"></a></h1>
+<div class="refbox admonition" id="id1">
+<p class="admonition-title">参考</p>
+<dl class="field-list simple">
+<dt class="field-odd">模式</dt>
+<dd class="field-odd"><p>所有模式</p>
+</dd>
+<dt class="field-even">标题栏</dt>
+<dd class="field-even"><p><img alt="小工具图标" src="../../../_images/editors_3dview_display_gizmo_header.png" /> <span class="menuselection">操控器</span></p>
+</dd>
+</dl>
+</div>
+<p>Clicking the icon toggles all gizmos in the 3D Viewport.
+The dropdown button displays a popover with more detailed settings,
+which are described below.</p>
+<section id="id2">
+<h2>视图操控器<a class="headerlink" href="#id2" title="Permalink to this heading"></a></h2>
+<dl class="simple">
+<dt>导航</dt><dd><p>启用/禁用 <a class="reference internal" href="../navigate/introduction.html#navigation-gizmo"><span class="std std-ref">导航操控器</span></a>。</p>
+</dd>
+<dt>活动工具</dt><dd><p>启用/禁用活动工具操控器。</p>
+</dd>
+<dt>活动物体</dt><dd><p>对活动元素启用/禁用物体操控器（见下文）。</p>
+</dd>
+</dl>
+</section>
+<section id="object-gizmos">
+<h2>物体操控器<a class="headerlink" href="#object-gizmos" title="Permalink to this heading"></a></h2>
+<p>Object Gizmos allow mouse-controlled translation, rotation and scaling in the 3D Viewport.
+While they're called &quot;object&quot; gizmos in the popover, they also apply to other transformable
+elements such as mesh vertices.</p>
+<p>There is a separate gizmo for each operation.
+Each gizmo can be used separately or in combination with the others.</p>
+<p>A gizmo always has three color-coded axes: X (red), Y (green), and Z (blue).
+You can drag an axis with <kbd class="kbd docutils literal notranslate">LMB</kbd> to transform along it. The Move and Scale gizmos
+additionally have small colored squares for transforming along two axes in one go.</p>
+<p>Various modifier keys can be used:</p>
+<ul class="simple">
+<li><p>Holding <kbd class="kbd docutils literal notranslate">Ctrl</kbd> at any time will toggle <a class="reference internal" href="../controls/snapping.html"><span class="doc">snapping</span></a>
+and also make rotation and scaling work in coarse increments.</p></li>
+<li><p>Holding <kbd class="kbd docutils literal notranslate">Shift</kbd> <em>after</em> pressing <kbd class="kbd docutils literal notranslate">LMB</kbd> will do the opposite of the above, &quot;slowing down&quot;
+the transformation relative to mouse movement to allow finer adjustments.</p></li>
+<li><p>Holding <kbd class="kbd docutils literal notranslate">Shift</kbd> <em>before</em> pressing <kbd class="kbd docutils literal notranslate">LMB</kbd> will perform the transformation in the plane
+that's perpendicular to the clicked axis. See <a class="reference internal" href="../../../scene_layout/object/editing/transform/control/axis_locking.html#view3d-transform-plane-lock"><span class="std std-ref">平面锁定</span></a>.</p></li>
+</ul>
+<p>The Gizmos popover has the following settings for object gizmos:</p>
+<dl class="simple">
+<dt>坐标系</dt><dd><p>The orientation to use for the gizmo. <em>Default</em> means to use the viewport's
+<a class="reference internal" href="../controls/orientation.html"><span class="doc">Transform Orientation</span></a>.
+The other options override it.</p>
+</dd>
+<dt>移动</dt><dd><p>Show the gizmo to control the location.
+Dragging the small white circle allows free movement in the viewing plane.</p>
+</dd>
+<dt>旋转</dt><dd><p>Show the gizmo to control the rotation.
+Dragging the large white circle allows rotation around the viewing direction.
+Dragging the translucent white disc within that circle (only visible when
+hovering over the gizmo) allows <a class="reference internal" href="../../../scene_layout/object/editing/transform/rotate.html#view3d-transform-trackball"><span class="std std-ref">trackball rotation</span></a>.</p>
+</dd>
+<dt>比例|缩放</dt><dd><p>Show the gizmo to control the scale.
+Dragging the area between the small and large white circles scales along all three axes.</p>
+</dd>
+</dl>
+<p>The latter three options are also available in a pie menu
+if you have the <em>Grave Accent / Tilde Action</em> in the
+<a class="reference internal" href="../../preferences/keymap.html"><span class="doc">Keymap Preferences</span></a> set to <em>Gizmos</em>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you're using a tool that's tied to a particular gizmo setup (the <em>Move</em>, <em>Rotate</em>,
+<em>Scale</em> and <em>Transform</em> tools), the Move/Rotate/Scale checkboxes won't have any effect.</p>
+</div>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><figure class="align-default" id="id3">
+<a class="reference internal image-reference" href="../../../_images/editors_3dview_display_gizmo_options-translate.png"><img alt="../../../_images/editors_3dview_display_gizmo_options-translate.png" src="../../../_images/editors_3dview_display_gizmo_options-translate.png" style="width: 320px;" /></a>
+<figcaption>
+<p><span class="caption-text">移动。</span><a class="headerlink" href="#id3" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</td>
+<td><figure class="align-default" id="id4">
+<a class="reference internal image-reference" href="../../../_images/editors_3dview_display_gizmo_options-rotate.png"><img alt="../../../_images/editors_3dview_display_gizmo_options-rotate.png" src="../../../_images/editors_3dview_display_gizmo_options-rotate.png" style="width: 320px;" /></a>
+<figcaption>
+<p><span class="caption-text">旋转。</span><a class="headerlink" href="#id4" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</td>
+<td><figure class="align-default" id="id5">
+<a class="reference internal image-reference" href="../../../_images/editors_3dview_display_gizmo_options-scale.png"><img alt="../../../_images/editors_3dview_display_gizmo_options-scale.png" src="../../../_images/editors_3dview_display_gizmo_options-scale.png" style="width: 320px;" /></a>
+<figcaption>
+<p><span class="caption-text">缩放。</span><a class="headerlink" href="#id5" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</td>
+<td><figure class="align-default" id="id6">
+<a class="reference internal image-reference" href="../../../_images/editors_3dview_display_gizmo_options-all.png"><img alt="../../../_images/editors_3dview_display_gizmo_options-all.png" src="../../../_images/editors_3dview_display_gizmo_options-all.png" style="width: 320px;" /></a>
+<figcaption>
+<p><span class="caption-text">组合。</span><a class="headerlink" href="#id6" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>The <a class="reference internal" href="../../preferences/viewport.html#prefs-viewport-gizmo-size"><span class="std std-ref">Gizmo Preferences</span></a>.</p>
+</div>
+</section>
+<section id="empty">
+<h2>空物体<a class="headerlink" href="#empty" title="Permalink to this heading"></a></h2>
+<p>用于 <a class="reference internal" href="../../../modeling/empties.html"><span class="doc">空物体</span></a> 的操控器。</p>
+<dl class="simple">
+<dt>图像</dt><dd><p>显示操控器以调节图像的尺寸和位置。</p>
+</dd>
+<dt>力场</dt><dd><p>显示操控器以调整 <a class="reference internal" href="../../../physics/forces/force_fields/introduction.html"><span class="doc">力场</span></a>。</p>
+</dd>
+</dl>
+</section>
+<section id="light">
+<h2>灯光<a class="headerlink" href="#light" title="Permalink to this heading"></a></h2>
+<p>用于 <a class="reference internal" href="../../../render/lights/light_object.html"><span class="doc">灯光</span></a> 的操控器。</p>
+<dl class="simple">
+<dt>尺寸</dt><dd><p>显示操控器以调节聚光灯的光斑尺寸。</p>
+</dd>
+<dt>朝向</dt><dd><p>显示操控器以调节灯光的方向。</p>
+</dd>
+</dl>
+</section>
+<section id="camera">
+<h2>摄像机<a class="headerlink" href="#camera" title="Permalink to this heading"></a></h2>
+<p>用于 <a class="reference internal" href="../../../render/cameras.html"><span class="doc">摄像机</span></a> 的操控器。</p>
+<dl class="simple">
+<dt>镜头</dt><dd><p>Show the gizmo to adjust the focal length (for Perspective cameras)
+or orthographic scale (for Orthograpic cameras).</p>
+</dd>
+<dt>焦距</dt><dd><p>Enable the gizmo for adjusting the focus distance. To see this gizmo,
+you need to enable the <span class="menuselection">Viewport Display ‣ Limits</span> checkbox
+in the camera's properties (green camera icon).</p>
+</dd>
+</dl>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="visibility.html" class="btn btn-neutral float-left" title="物体类型可见性" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="overlays.html" class="btn btn-neutral float-right" title="视图叠加层" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; <a href="../../../copyright.html">Copyright</a> : This page is licensed under a CC-BY-SA 4.0 Int. License.
+      <span class="lastupdated">Last updated on 10/02/2024.
+      </span></p>
+  </div>
+
+  
+<div class="footer-contribute">
+   <ul>
+      <li>
+         <a href="https://developer.blender.org/diffusion/BM/browse/trunk/blender_docs/manual/editors/3dview/display/gizmo.rst"
+            class="fa fa-edit"> Edit Page</a>
+      </li>
+      <li>
+         <a href="https://developer.blender.org/maniphest/task/edit/form/default/?description=Pagename%3A%20%60editors/3dview/display/gizmo%60%0ABlender%20Version%3A%20%603.3%60%0ADocumentation%20Language%3A%20%60zh-hans%60%0A%5B%5B%20https%3A%2F%2Fdocs.blender.org%2Fmanual%2Fzh-hans%2F3.3%2Feditors/3dview/display/gizmo.html%20%7C%20Permanent%20link%20%5D%5D%0A%0A%2A%2AShort%20description%20of%20error%2A%2A%0A%5BPlease%20fill%20out%20a%20short%20description%20of%20the%20error%20here%5D&project=PHID-PROJ-c4nvvrxuczix2326vlti"
+            class="fa fa-bug"> 报告本页面的问题</a>
+      </li>
+      <ul>
+</div>
+
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+	<ul id="versionwrap" role="presentation">
+		<li role="presentation">
+			<span id="version-popover" class="version-btn" tabindex="0" role="button" aria-label="versions selector"
+				aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+				3.3
+			</span>
+			<div class="version-dialog" aria-hidden="true">
+				<div class="version-arrow" aria-hidden="true"></div>
+				<div class="version-title">Versions</div>
+				<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-popover"
+					aria-hidden="true">
+					<li role="presentation">Loading...</li>
+				</ul>
+			</div>
+		</li>
+		<li role="presentation">
+			<span id="lang-popover" class="version-btn" tabindex="0" role="button" aria-label="language selector"
+				aria-haspopup="true" aria-controls="version-langlist">
+				 zh-hans 
+			</span>
+			<div class="version-dialog" aria-hidden="true">
+				<div class="version-arrow" aria-hidden="true"></div>
+				<div class="version-title">Languages</div>
+				<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-popover"
+					aria-hidden="true">
+					<li role="presentation">Loading...</li>
+				</ul>
+			</div>
+		</li>
+	</ul>
+</div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-1418081-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-1418081-1', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

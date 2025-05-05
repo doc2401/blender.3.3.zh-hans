@@ -1,0 +1,7 @@
+
+ErrorDocument 404 /manual/zh-hans/3.3/404.html
+RedirectMatch \"^/manual/zh-hans/3.3/addons/import_export/io_(.*)\" \"/manual/zh-hans/3.3/addons/import_export/$1\"
+RedirectMatch \"^/manual/zh-hans/3.3/modeling/geometry_nodes/curve/curve_parameter.html\" \"/manual/zh-hans/3.3/modeling/geometry_nodes/curve/spline_parameter.html\" 
+RedirectMatch \"^/manual/zh-hans/3.3/modeling/geometry_nodes/utilities/compare_floats.html\" \"/manual/zh-hans/3.3/modeling/geometry_nodes/utilities/compare.html\" 
+RedirectMatch \"^/manual/zh-hans/3.3/about/contribute\" \"/manual/zh-hans/3.3/contribute/$1\"
+RedirectMatch \"^/manual/zh-hans/3.3/about/index.html\" \"/manual/zh-hans/3.3/contribute/index.html$1\"
